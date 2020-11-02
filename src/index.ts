@@ -103,7 +103,7 @@ export const isNumber = (str: string): boolean => {
   return regExp.test(str);
 };
 
-export const isArrayEqual = (a: any[], b: any[]): boolean => {
+export const isArrayEqual = (a: unknown[], b: unknown[]): boolean => {
   let result = true;
 
   if (a.length !== b.length) return false;
