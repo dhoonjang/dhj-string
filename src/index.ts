@@ -134,8 +134,8 @@ export const isArrayEqual = (a: unknown[], b: unknown[]): boolean => {
   return result;
 };
 
-export const jsonMuiltipleParse = (str: string, n: number) => {
-  let parsedJson: string = str;
+export const jsonMuiltipleParse = (str: string, n: number): any => {
+  let parsedJson: any = str;
 
   for (let i = 0; i < n; i++) {
     if (!isJson(parsedJson)) break;
