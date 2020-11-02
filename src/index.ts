@@ -22,14 +22,12 @@ export const getByteLength = (str: string): number => {
 };
 
 export const isName = (str: string, nameLength?: [number, number]): boolean => {
-  const lengthReg = nameLength
-    ? `{${nameLength[0]},${nameLength[1]}}`
-    : `{3, 16}`;
+  const minLength = nameLength ? nameLength[0] : 2;
+  const maxLength = nameLength ? nameLength[1] : 16;
 
-  const regExp = new RegExp(
-    "^[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]" + lengthReg + "$",
-    "i"
-  );
+  if (str.length < minLength || str.length > maxLength) return false;
+
+  const regExp = /^[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]{1,}$/i;
 
   return regExp.test(str);
 };
@@ -41,12 +39,12 @@ export const isEmail = (str: string): boolean => {
 };
 
 export const isPw = (str: string, pwLength?: [number, number]): boolean => {
-  const lengthReg = pwLength ? `{${pwLength[0]}, ${pwLength[1]}}` : `{8, 16}`;
+  const minLength = pwLength ? pwLength[0] : 8;
+  const maxLength = pwLength ? pwLength[1] : 16;
 
-  const regExp = new RegExp(
-    "^[a-zA-Z0-9!\\\"#$%&'()*+,-./:;<=>?@[＼\\]^_`{|}~\\)]" + lengthReg + "$",
-    "i"
-  );
+  if (str.length < minLength || str.length > maxLength) return false;
+
+  const regExp = /^[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@[＼\]^_`{|}~\\)]{1,}$/i;
 
   return regExp.test(str);
 };
