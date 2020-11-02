@@ -44,7 +44,7 @@ export const isPw = (str: string, pwLength?: [number, number]): boolean => {
   const lengthReg = pwLength ? `{${pwLength[0]}, ${pwLength[1]}}` : `{8, 16}`;
 
   const regExp = new RegExp(
-    "^[a-zA-Z0-9!\"#$%&'()*+,-./:;<=>?@\\[＼]^_\\{|\\}~\\)]" + lengthReg + "$",
+    "^[a-zA-Z0-9!\\\"#$%&'()*+,-./:;<=>?@[＼\\]^_`{|}~\\)]" + lengthReg + "$",
     "i"
   );
 
