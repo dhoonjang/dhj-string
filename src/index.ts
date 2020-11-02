@@ -51,7 +51,10 @@ export const isPw = (str: string, pwLength?: [number, number]): boolean => {
   return regExp.test(str);
 };
 
-export const isPwStrick = (str: string): boolean => {
+export const isPwStrick = (
+  str: string,
+  pwLength?: [number, number]
+): boolean => {
   const regLower = /[a-z]/g;
   const regUpper = /[A-Z]/g;
   const regNum = /[0-9]/g;
@@ -62,7 +65,7 @@ export const isPwStrick = (str: string): boolean => {
     str.search(regUpper) >= 0 &&
     str.search(regNum) >= 0 &&
     str.search(regSpe) >= 0 &&
-    isPw(str)
+    isPw(str, pwLength)
   );
 };
 
