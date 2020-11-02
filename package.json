@@ -11,7 +11,14 @@
   "author": "dhoonjang <dhoonjang@gmail.com>",
   "license": "MIT",
   "dependencies": {},
+  "peerDependencies": {
+    "rollup-plugin-typescript2": "^0.29.0"
+  },
   "devDependencies": {
+    "rollup": "^2.33.0",
+    "@rollup/plugin-commonjs": "^10.1.0",
+    "@rollup/plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^4.0.3"
   },
   "scripts": {
