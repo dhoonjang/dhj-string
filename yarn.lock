@@ -364,6 +364,11 @@ deepmerge@^4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
+dhj-string@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/dhj-string/-/dhj-string-0.4.4.tgz#4445cae1ba6806b281c55f7ce319c9fc81b7b903"
+  integrity sha512-G5NY8U9ahkW5u68HpKLIIfUjpXqJl9NLf/8u214xcw74quqbZEjrxbbJSfczm8SFrmoY/dRfmcnmc71ffndOcA==
+
 dir-glob@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-3.0.1.tgz#56dbf73d992a4a93ba1584f4534063fd2e41717f"

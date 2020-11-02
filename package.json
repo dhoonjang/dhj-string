@@ -10,7 +10,9 @@
   "repository": "https://github.com/dhoonjang/dhj-string.git",
   "author": "dhoonjang <dhoonjang@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "dhj-string": "^0.4.4"
+  },
   "peerDependencies": {
     "@typescript-eslint/parser": "^4.0.0",
     "rollup-plugin-typescript2": "^0.29.0"
