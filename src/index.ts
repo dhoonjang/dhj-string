@@ -21,6 +21,19 @@ export const getByteLength = (str: string): number => {
   return b;
 };
 
+export const isProperString = (str: string): boolean => {
+  const regExp = /^[ㄱ-ㅎㅏ-ㅣ0-9!"#$%&'()*+,-./:;<=>?@[\]\\^_`{|}~\s]*$/i;
+
+  return !regExp.test(str);
+};
+
+export const isUrlPath = (str: string, urlPattern: string): boolean => {
+  const regExp = new RegExp("^[/](" + urlPattern + ")$");
+  const regExpExtend = new RegExp("^[/](" + urlPattern + ")[/]");
+
+  return regExp.test(str) || regExpExtend.test(str);
+};
+
 export const isName = (str: string, nameLength?: [number, number]): boolean => {
   const minLength = nameLength ? nameLength[0] : 2;
   const maxLength = nameLength ? nameLength[1] : 16;
@@ -67,8 +80,16 @@ export const isPwStrick = (
   );
 };
 
-export const checkDuplicate = (str: string) => {
-  const regExp = /(\w)\1\1/;
+export const checkDuplicate = (str: string, max?: number) => {
+  let i = 1;
+  let regStr = "(\\w)";
+
+  while (i < (max ? max : 3)) {
+    regStr += "\\1";
+    i++;
+  }
+
+  const regExp = new RegExp(regStr);
 
   return regExp.test(str);
 };
@@ -76,7 +97,7 @@ export const checkDuplicate = (str: string) => {
 export const checkContinuous = (str: string, max?: number): boolean => {
   if (!max) max = 3; // 글자수를 지정하지 않으면 3로 지정
 
-  let i: number, j: number, x: string, y: string;
+  let i: number, j: number, x: string;
 
   const buff: string[] = [
     "0123456789",
@@ -84,21 +105,18 @@ export const checkContinuous = (str: string, max?: number): boolean => {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   ];
 
-  let src: string, src2: string;
+  let src: string;
   let ptn = "";
 
   for (i = 0; i < buff.length; i++) {
-    src = buff[i]; // 0123456789
-    src2 = buff[i] + buff[i]; // 01234567890123456789
-    for (j = 0; j < src.length; j++) {
-      x = src.substr(j, 1); // 0
-      y = src2.substr(j, max); // 0123
-      ptn += "[" + x + "]{" + max + ",}|"; // [0]{4,}|0123|[1]{4,}|1234|...
-      ptn += y + "|";
+    src = buff[i] + buff[i]; // 01234567890123456789
+    for (j = 0; j < buff[i].length; j++) {
+      x = src.substr(j, max); // 0123
+      ptn += x + "|";
     }
   }
 
-  const regPtn = new RegExp(ptn.replace(/.$/, "")); // 맨마지막의 글자를 하나 없애고 정규식으로 만든다.
+  const regPtn = new RegExp(ptn.replace(/.$/, ""));
 
   return regPtn.test(str);
 };

@@ -10,9 +10,7 @@
   "repository": "https://github.com/dhoonjang/dhj-string.git",
   "author": "dhoonjang <dhoonjang@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "dhj-string": "^0.4.4"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@typescript-eslint/parser": "^4.0.0",
     "rollup-plugin-typescript2": "^0.29.0"
@@ -20,15 +18,19 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
+    "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "eslint": "^7.12.1",
+    "jest": "^26.6.2",
     "rollup": "^2.33.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.29.0",
+    "ts-jest": "^26.4.3",
     "typescript": "^4.0.3"
   },
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "jest --watch --detectOpenHandles"
   }
 }
