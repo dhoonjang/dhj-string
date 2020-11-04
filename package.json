@@ -1,6 +1,6 @@
 {
   "name": "dhj-string",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "dhoojang's string util",
   "browser": "build/index.js",
   "main": "build/index.js",
