@@ -167,5 +167,11 @@ export const priceString = (price: number): string => {
   let units = "000";
   if (price - thousands * 1000 !== 0)
     units = (price - thousands * 1000).toFixed();
-  return `${thousands},${units}`;
+  return `${thousands},${
+    price - thousands * 1000 >= 100
+      ? units
+      : price - thousands * 1000 >= 10
+      ? `0${units}`
+      : `00${units}`
+  }`;
 };
