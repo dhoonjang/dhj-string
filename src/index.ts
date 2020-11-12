@@ -162,16 +162,13 @@ export const jsonPareRepeater = (str: string, n: number): any => {
 };
 
 export const priceString = (price: number): string => {
-  if (price < 1000) return `${price.toFixed()}`;
-  const thousands = Math.floor(price / 1000);
-  let units = "000";
-  if (price - thousands * 1000 !== 0)
-    units = (price - thousands * 1000).toFixed();
-  return `${thousands},${
-    price - thousands * 1000 >= 100 || price - thousands * 1000 === 0
-      ? units
-      : price - thousands * 1000 >= 10
-      ? `0${units}`
-      : `00${units}`
-  }`;
+  const priceString: string = price.toFixed();
+  const strArr: string[] = [];
+
+  let i;
+  for (i = 3; i < priceString.length; i += 3)
+    strArr.unshift(priceString.substr(priceString.length - i, 3));
+  strArr.unshift(priceString.substr(0, priceString.length - i + 3));
+
+  return strArr.join(",");
 };

@@ -1,3 +1,4 @@
+import { priceString } from "..";
 import {
   checkDuplicate,
   clearStringGap,
@@ -90,4 +91,16 @@ test.each([
   ["Aa1.", [3, 4], true],
 ])('%#. is pw strick: "%s"', (str, dup: [number, number], result) => {
   expect(isPwStrick(str, dup)).toBe(result);
+});
+
+test.each([
+  [100, "100"],
+  [1000, "1,000"],
+  [8068, "8,068"],
+  [112068, "112,068"],
+  [12168, "12,168"],
+  [21040068, "21,040,068"],
+  [210068, "210,068"],
+])('%#. price string: %d > "%s"', (number, result) => {
+  expect(priceString(number)).toBe(result);
 });
