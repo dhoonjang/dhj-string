@@ -150,7 +150,7 @@ export const isArrayEqual = (a: unknown[], b: unknown[]): boolean => {
   return result;
 };
 
-export const jsonPareRepeater = (str: string, n: number): any => {
+export const jsonParseRepeater = (str: string, n: number): any => {
   let parsedJson: any = str;
 
   for (let i = 0; i < n; i++) {
