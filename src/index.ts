@@ -134,7 +134,7 @@ export const checkInclude = (str: string, checkArray: string[]): boolean => {
 
 export const isNumber = (str: string): boolean => {
   const regExp = /^[0-9\b]+$/;
-  return regExp.test(str);
+  return regExp.test(str) || str.length === 0;
 };
 
 export const isArrayEqual = (a: unknown[], b: unknown[]): boolean => {
