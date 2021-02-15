@@ -1,4 +1,4 @@
-import { priceString } from "..";
+import { isEmail, priceString } from "..";
 import {
   checkDuplicate,
   clearStringGap,
@@ -52,6 +52,13 @@ test.each([
   ["AAAA", 4, true],
 ])('%#. check duplicate: "%s"', (str, dup, result) => {
   expect(checkDuplicate(str, dup)).toBe(result);
+});
+
+test.each([
+  ["dhoonjang@make.education", true],
+  [" a a  a", false],
+])('%#. is email: "%s"', (str, result) => {
+  expect(isEmail(str)).toBe(result);
 });
 
 test.each([
