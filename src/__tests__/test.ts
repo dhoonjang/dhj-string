@@ -56,6 +56,8 @@ test.each([
 
 test.each([
   ["dhoonjang@make.education", true],
+  ["facebook___@naver.com", true],
+  ["fac ebook___@naver.com", false],
   [" a a  a", false],
 ])('%#. is email: "%s"', (str, result) => {
   expect(isEmail(str)).toBe(result);
