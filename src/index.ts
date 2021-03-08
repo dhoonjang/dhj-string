@@ -58,7 +58,7 @@ export const isName = (str: string, nameLength?: [number, number]): boolean => {
 };
 
 export const isEmail = (str: string): boolean => {
-  const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+  const regExp = /^[0-9a-zA-Z_]([-_.]?[0-9a-zA-Z_])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,}$/i;
 
   return regExp.test(str);
 };

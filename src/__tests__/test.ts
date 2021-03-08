@@ -1,4 +1,3 @@
-import { isOpeningUrl, priceString } from "..";
 import {
   checkDuplicate,
   clearStringGap,
@@ -9,7 +8,10 @@ import {
   isOpeningSelectUrl,
   checkInclude,
   isPw,
+  isEmail,
   isPwStrick,
+  isOpeningUrl,
+  priceString,
 } from "..";
 
 test.each([
@@ -71,6 +73,15 @@ test.each([
   ["AAAA", 4, true],
 ])('%#. check duplicate: "%s"', (str, dup, result) => {
   expect(checkDuplicate(str, dup)).toBe(result);
+});
+
+test.each([
+  ["dhoonjang@make.education", true],
+  ["facebook___@naver.com", true],
+  ["fac ebook___@naver.com", false],
+  [" a a  a", false],
+])('%#. is email: "%s"', (str, result) => {
+  expect(isEmail(str)).toBe(result);
 });
 
 test.each([
