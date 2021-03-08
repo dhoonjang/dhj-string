@@ -1,4 +1,4 @@
-import { priceString } from "..";
+import { isOpeningUrl, priceString } from "..";
 import {
   checkDuplicate,
   clearStringGap,
@@ -6,10 +6,29 @@ import {
   isProperString,
   isUrlPath,
   checkContinuous,
+  isOpeningSelectUrl,
   checkInclude,
   isPw,
   isPwStrick,
 } from "..";
+
+test.each([
+  ["https://front-test.fitple.com/opening/151#select_applicant", false],
+  ["https://front-test.fitple.com/opening/92", true],
+  ["https://www.fitple.com/opening/14", true],
+  [" a a a", false],
+])('%#. opening url : "%s"', (str, result) => {
+  expect(isOpeningUrl(str)).toBe(result);
+});
+
+test.each([
+  ["https://front-test.fitple.com/opening/151#select_applicant", true],
+  ["https://front-test.fitple.com/opening/15", false],
+  ["https://www.fitple.com/opening/", false],
+  [" a a a", false],
+])('%#. opening select url : "%s"', (str, result) => {
+  expect(isOpeningSelectUrl(str)).toBe(result);
+});
 
 test.each([
   ["ad sfas dfa12 414sdf", "adsfasdfa12414sdf"],

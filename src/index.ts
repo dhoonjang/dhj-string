@@ -7,6 +7,18 @@ export const isJson = (str: string) => {
   return true;
 };
 
+export const isOpeningUrl = (str: string): boolean => {
+  const regExp = /^[(https://)]+[a-z/-]{3,}(.fitple.com)[(/opening/)]+[0-9]+$/i;
+
+  return regExp.test(str);
+};
+
+export const isOpeningSelectUrl = (str: string): boolean => {
+  const regExp = /^[(https://)]+[a-z/-]{3,}(.fitple.com)[(/opening/)]+[0-9]+[(#select_applicant)]+$/i;
+
+  return regExp.test(str);
+};
+
 export const clearStringGap = (str: string): string => {
   return str.replace(/(\s*)/g, "");
 };
@@ -64,7 +76,7 @@ export const isPw = (str: string, pwLength?: [number, number]): boolean => {
 
 export const isPwStrick = (
   str: string,
-  pwLength?: [number, number]
+  pwLength?: [number, number],
 ): boolean => {
   const regLower = /[a-z]/g;
   const regUpper = /[A-Z]/g;
